@@ -38,4 +38,4 @@ HEALTHCHECK --interval=30s --timeout=10s --start-period=30s \
     CMD openclaw status || exit 1
 
 # Start the OpenClaw gateway
-CMD ["openclaw", "gateway"]
+CMD ["openclaw", "gateway", "run"]
