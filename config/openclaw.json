@@ -19,7 +19,7 @@
             }
         }
     },
-    "channels": {
+    "channel": {
         "telegram": {
             "enabled": true,
             "botToken": "${TELEGRAM_BOT_TOKEN}",
