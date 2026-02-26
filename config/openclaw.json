@@ -1,0 +1,73 @@
+{
+    "agent": {
+        "name": "YouTube AI Assistant",
+        "description": "I'm Yuki 🦞 — your YouTube AI Research Assistant. Send me any YouTube link to get a structured summary, then ask me anything about the video!"
+    },
+    "models": {
+        "gemini/gemini-2.0-flash": {
+            "apiKey": "${GEMINI_API_KEY}",
+            "maxTokens": 8192,
+            "temperature": 0.3
+        }
+    },
+    "model": "gemini/gemini-2.0-flash",
+    "channels": {
+        "telegram": {
+            "enabled": true,
+            "botToken": "${TELEGRAM_BOT_TOKEN}",
+            "dmPolicy": "open",
+            "streaming": "partial",
+            "customCommands": [
+                {
+                    "command": "summary",
+                    "description": "Regenerate the video summary"
+                },
+                {
+                    "command": "deepdive",
+                    "description": "Deep analysis of the video"
+                },
+                {
+                    "command": "actionpoints",
+                    "description": "Extract actionable takeaways"
+                },
+                {
+                    "command": "language",
+                    "description": "Set language: hindi / tamil / kannada / telugu / marathi / english"
+                },
+                {
+                    "command": "clear",
+                    "description": "Clear session and start fresh"
+                }
+            ]
+        }
+    },
+    "skills": {
+        "load": {
+            "workspace": true
+        },
+        "entries": {
+            "youtube-summarizer": {
+                "enabled": true,
+                "env": {
+                    "GEMINI_API_KEY": "GEMINI_API_KEY"
+                }
+            }
+        }
+    },
+    "tools": {
+        "allow": [
+            "exec",
+            "read",
+            "write"
+        ]
+    },
+    "agents": {
+        "defaults": {
+            "maxConcurrent": 10
+        }
+    },
+    "sessions": {
+        "store": "file",
+        "ttlSeconds": 3600
+    }
+}

@@ -1,0 +1,7 @@
+node_modules/
+.env
+cache/
+__pycache__/
+*.pyc
+.openclaw/
+workspace/
